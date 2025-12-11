@@ -9,7 +9,7 @@ import plotly.express as px
 
 st.set_page_config(
     page_title="Sanem Çiçek - Veri Görselleştirme",
-    page_icon="📊",
+    page_icon="●",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -44,7 +44,7 @@ st.markdown("""
 
 st.markdown("""
 <div class="main-header">
-    <h1>📊 Veri Görselleştirme Projesi</h1>
+    <h1>● Veri Görselleştirme Projesi</h1>
     <p>Sanem Çiçek tarafından hazırlanmıştır</p>
 </div>
 """, unsafe_allow_html=True)
@@ -71,7 +71,7 @@ st.divider()
 
 st.markdown("""
 <div class="task-header">
-    <h2>📌 GÖREV 1: Ar-Ge Harcaması ve Kâr Arasındaki İlişki</h2>
+    <h2>→ GÖREV 1: Ar-Ge Harcaması ve Kâr Arasındaki İlişki</h2>
 </div>
 """, unsafe_allow_html=True)
 
@@ -101,7 +101,7 @@ st.divider()
 
 st.markdown("""
 <div class="task-header">
-    <h2>📌 GÖREV 2: Yönetim Harcamaları ve Kâr Arasındaki İlişki</h2>
+    <h2>→ GÖREV 2: Yönetim Harcamaları ve Kâr Arasındaki İlişki</h2>
 </div>
 """, unsafe_allow_html=True)
 
@@ -131,7 +131,7 @@ st.divider()
 
 st.markdown("""
 <div class="task-header">
-    <h2>📌 GÖREV 3: Eyaletlere Göre Ortalama Kâr</h2>
+    <h2>→ GÖREV 3: Eyaletlere Göre Ortalama Kâr</h2>
 </div>
 """, unsafe_allow_html=True)
 
@@ -163,7 +163,7 @@ st.divider()
 
 st.markdown("""
 <div class="task-header">
-    <h2>📌 GÖREV 4: Harcama Türlerinin Karşılaştırması</h2>
+    <h2>→ GÖREV 4: Harcama Türlerinin Karşılaştırması</h2>
 </div>
 """, unsafe_allow_html=True)
 
