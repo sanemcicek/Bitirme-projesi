@@ -1,10 +1,11 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
-import plotly.graph_objects as go
 
 st.set_page_config(
     page_title="Sanem Çiçek - Veri Görselleştirme",
@@ -13,7 +14,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS
 st.markdown("""
 <style>
     .main-header {
@@ -51,11 +51,12 @@ st.markdown("""
 
 @st.cache_data
 def load_data():
-    return pd.read_csv('Ödev 2/50_Startups.csv')
+    import os
+    csv_path = os.path.join('Ödev 2', '50_Startups.csv')
+    return pd.read_csv(csv_path)
 
 data = load_data()
 
-# Display data info
 col1, col2, col3 = st.columns(3)
 with col1:
     st.metric("Toplam Kayıt", len(data))
@@ -68,7 +69,6 @@ st.write(data.head())
 
 st.divider()
 
-# GÖREV 1
 st.markdown("""
 <div class="task-header">
     <h2>📌 GÖREV 1: Ar-Ge Harcaması ve Kâr Arasındaki İlişki</h2>
@@ -85,6 +85,7 @@ with col1:
     ax.set_xlabel('Ar-Ge Harcaması ($)', fontsize=12)
     ax.set_ylabel('Kâr ($)', fontsize=12)
     st.pyplot(fig)
+    plt.close(fig)
 
 with col2:
     st.write("**Plotly Versiyonu (İnteraktif)**")
@@ -98,7 +99,6 @@ with col2:
 
 st.divider()
 
-# GÖREV 2
 st.markdown("""
 <div class="task-header">
     <h2>📌 GÖREV 2: Yönetim Harcamaları ve Kâr Arasındaki İlişki</h2>
@@ -115,6 +115,7 @@ with col1:
     ax.set_xlabel('Yönetim Harcaması ($)', fontsize=12)
     ax.set_ylabel('Kâr ($)', fontsize=12)
     st.pyplot(fig)
+    plt.close(fig)
 
 with col2:
     st.write("**Plotly Versiyonu (İnteraktif)**")
@@ -128,7 +129,6 @@ with col2:
 
 st.divider()
 
-# GÖREV 3
 st.markdown("""
 <div class="task-header">
     <h2>📌 GÖREV 3: Eyaletlere Göre Ortalama Kâr</h2>
@@ -148,6 +148,7 @@ with col1:
     ax.set_ylabel('Ortalama Kâr ($)', fontsize=12)
     plt.xticks(rotation=45)
     st.pyplot(fig)
+    plt.close(fig)
 
 with col2:
     st.write("**Plotly Versiyonu (İnteraktif)**")
@@ -160,14 +161,12 @@ with col2:
 
 st.divider()
 
-# GÖREV 4
 st.markdown("""
 <div class="task-header">
     <h2>📌 GÖREV 4: Harcama Türlerinin Karşılaştırması</h2>
 </div>
 """, unsafe_allow_html=True)
 
-# Prepare data for box plot
 spend_data = data[['R&D Spend', 'Administration', 'Marketing Spend']].melt(
     var_name='Harcama Türü', value_name='Miktar'
 )
@@ -183,6 +182,7 @@ with col1:
     ax.set_xlabel('Harcama Türü', fontsize=12)
     ax.set_ylabel('Harcama ($)', fontsize=12)
     st.pyplot(fig)
+    plt.close(fig)
 
 with col2:
     st.write("**Plotly Versiyonu (İnteraktif)**")
